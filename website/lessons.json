@@ -1,0 +1,9 @@
+[
+  { "level": "Level 1", "title": "Python basics", "blurb": "Variables, strings, lists, loops, conditions and functions.", "file": "01_python_basics.ipynb" },
+  { "level": "Level 2", "title": "NumPy", "blurb": "Arrays, statistics and random numbers.", "file": "02_numpy.ipynb" },
+  { "level": "Level 3", "title": "Matplotlib", "blurb": "Line graphs, scatter plots, bar charts and histograms.", "file": "03_matplotlib.ipynb" },
+  { "level": "Level 4", "title": "Working with data", "blurb": "Open a CSV file, explore it and look for patterns.", "file": "04_data_analysis.ipynb" },
+  { "level": "Level 5", "title": "Linear regression", "blurb": "Train a model to predict house prices.", "file": "05_linear_regression.ipynb" },
+  { "level": "Level 5", "title": "Classification", "blurb": "Teach a model to tell apples from oranges. Meet overfitting.", "file": "06_classification.ipynb" },
+  { "level": "Level 5", "title": "Machine learning challenge", "blurb": "Coming soon.", "file": null }
+]

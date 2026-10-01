@@ -1,0 +1,13 @@
+{
+  "jupyter-lite-schema-version": 0,
+  "jupyter-config-data": {
+    "appName": "GCSE AI & ML Lab",
+    "litePluginSettings": {
+      "@jupyterlite/pyodide-kernel-extension:kernel": {
+        "loadPyodideOptions": {
+          "packages": ["numpy", "matplotlib", "pandas", "scikit-learn", "scipy"]
+        }
+      }
+    }
+  }
+}

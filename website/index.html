@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GCSE AI &amp; Machine Learning Lab</title>
+  <meta name="description" content="Learn Python, explore data and build your first machine-learning models, directly in your browser.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- All links on this page are RELATIVE (no leading "/") so the site works under /REPOSITORY/ on GitHub Pages. -->
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./">GCSE AI &amp; Machine Learning Lab</a>
+    <nav aria-label="Main">
+      <a href="#lessons">Lessons</a>
+      <a href="#help">How it works</a>
+      <a href="lab/index.html">JupyterLab</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Open a notebook and <mark>start coding.</mark></h1>
+        <p class="sub">Learn Python, explore data and build your first machine-learning models, directly in your browser.</p>
+        <div class="actions">
+          <a class="btn primary" href="lab/index.html">Start Coding</a>
+          <a class="btn" href="lab/index.html">Open JupyterLab</a>
+          <a class="btn" href="tree/index.html">Create a New Notebook</a>
+          <a class="btn" href="tree/index.html">Upload a Notebook</a>
+        </div>
+      </div>
+      <div class="cell" aria-hidden="true">
+<pre><span class="k">import</span> numpy <span class="k">as</span> np
+<span class="k">import</span> matplotlib.pyplot <span class="k">as</span> plt
+
+x = np.linspace(0, 10, 100)
+plt.plot(x, np.sin(x))
+plt.show()</pre>
+        <div class="out">
+          <svg viewBox="0 0 300 90" role="img" aria-label="A sine wave graph"><line x1="10" y1="45" x2="290" y2="45" stroke="#bbb"/><path d="M10 45 C 45 -10, 80 -10, 115 45 S 185 100, 220 45 S 270 5, 290 30" fill="none" stroke="#1f77b4" stroke-width="3"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <section id="lessons">
+      <h2>Lessons</h2>
+      <p class="lead">Work through them in order, or jump to the one your teacher set. Each lesson opens as a notebook you can change.</p>
+      <ul class="lessons" id="lesson-list">
+        <li><span class="lvl"></span><div><h3>Loading lessons&hellip;</h3><p>If this message stays, ask your teacher to check that JavaScript is turned on.</p></div><span></span></li>
+      </ul>
+      <p><a class="btn small" href="lab/index.html?path=notebooks/00_environment_check.ipynb">Check my setup works</a></p>
+    </section>
+
+    <section id="help">
+      <h2>How it works</h2>
+      <p class="lead">Your code runs inside your own browser. There is nothing to install and no account to make.</p>
+      <div class="steps">
+        <div class="step"><h3>Create a notebook</h3>
+          <ol><li>Click <strong>Start Coding</strong>.</li><li>Choose <strong>File &rarr; New &rarr; Notebook</strong>.</li><li>Pick <strong>Python</strong> and start typing.</li></ol></div>
+        <div class="step"><h3>Save your work</h3>
+          <ol><li>Press <strong>Ctrl + S</strong> (or Cmd + S).</li><li>Choose <strong>File &rarr; Download</strong>.</li><li>Keep the <code>.ipynb</code> file somewhere safe.</li></ol></div>
+        <div class="step"><h3>Carry on later</h3>
+          <ol><li>Open this website and click <strong>Start Coding</strong>.</li><li>Click the <strong>upload</strong> arrow in the file list.</li><li>Pick your <code>.ipynb</code> file and open it.</li></ol></div>
+      </div>
+      <details class="faq">
+        <summary>I see an error that says &ldquo;No module named&hellip;&rdquo;</summary>
+        <p>That package is not available in the browser lab yet. Check the spelling first. If it is spelt correctly, ask your teacher. Other red error messages are normal Python: read the last line to find out what went wrong.</p>
+      </details>
+      <p class="note">Your notebooks are kept in this browser only. Always download your work when you finish, especially on a shared school computer.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Nothing you write is sent anywhere. Your notebooks never leave your computer unless you share the file yourself.</p>
+    <p>Stuck? Ask your teacher. Python error messages are normal and useful: read the last line first.</p>
+  </footer>
+</div>
+
+<script>
+// Lessons come from lessons.json, so a teacher can add a lesson without touching this page.
+(function () {
+  var list = document.getElementById("lesson-list");
+  fetch("lessons.json").then(function (r) { return r.json(); }).then(function (lessons) {
+    list.innerHTML = "";
+    lessons.forEach(function (l) {
+      var li = document.createElement("li");
+      var lvl = document.createElement("span"); lvl.className = "lvl"; lvl.textContent = l.level;
+      var body = document.createElement("div");
+      var h = document.createElement("h3"); h.textContent = l.title;
+      var p = document.createElement("p"); p.textContent = l.blurb;
+      body.appendChild(h); body.appendChild(p);
+      var end = document.createElement("span");
+      if (l.file) {
+        var a = document.createElement("a");
+        a.className = "btn small"; a.textContent = "Start";
+        a.href = "lab/index.html?path=notebooks/" + encodeURIComponent(l.file);
+        a.setAttribute("aria-label", "Start lesson: " + l.title);
+        end.appendChild(a);
+      } else { end.className = "soon"; end.textContent = "Coming soon"; }
+      li.appendChild(lvl); li.appendChild(body); li.appendChild(end);
+      list.appendChild(li);
+    });
+  }).catch(function () {
+    list.innerHTML = "<li><span></span><div><h3>Lessons could not load</h3><p>Open the site from its web address instead of from a file, or use Start Coding.</p></div><span></span></li>";
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Build-time tools only (these run in GitHub Actions / on the teacher's computer).
+# They are NOT the Python packages students use in the browser -
+# those are listed in jupyter-lite.json (see README, "Adding a package").
+#
+# The kernel version decides which Pyodide (browser Python) version is used,
+# so keep both pinned together and upgrade them together.
+jupyterlite-core==0.8.5
+jupyterlite-pyodide-kernel==0.8.6
+# Needed so the build can index the notebooks and data in content/.
+jupyter-server>=2.14,<3
