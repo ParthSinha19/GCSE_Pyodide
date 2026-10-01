@@ -42,7 +42,7 @@ jobs:
           PY
 
       - name: Build JupyterLite and landing page
-        run: ./scripts/build.sh
+        run: bash scripts/build.sh
 
       - name: Upload site
         if: github.ref == 'refs/heads/main'
